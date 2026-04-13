@@ -239,7 +239,18 @@ function calculate(){
 let v=document.getElementById("calc").value;
 document.getElementById("res").innerText=eval(v);
 }
+function copyPass(){
+  let text = document.getElementById("passOut").innerText;
 
+  let temp = document.createElement("textarea");
+  temp.value = text;
+  document.body.appendChild(temp);
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+
+  alert("Password Copied!");
+}
 // BMI
 function bmi(){
 let w=document.getElementById("w").value;
