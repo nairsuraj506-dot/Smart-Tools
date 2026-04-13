@@ -52,7 +52,9 @@ img{max-width:100%;}
 </head>
 
 <body>
-
+<a href="#" style="color:#38bdf8;text-decoration:none;font-weight:bold;">Home</a>
+<a href="#" style="color:white;text-decoration:none;">Tools</a>
+<a href="#" style="color:white;text-decoration:none;">Contact</a>
 <h1>🔥 Smart Tools Hub ULTRA PRO</h1>
 
 <div class="container">
@@ -64,7 +66,18 @@ img{max-width:100%;}
 <button onclick="aiGen()">Generate</button>
 <p id="aiOut"></p>
 </div>
+<div class="card">
+<h3>Password Generator 🔐</h3>
+<button onclick="genPass()">Generate Password</button>
+<p id="passOut"></p>
+</div>
 
+<div class="card">
+<h3>Word Counter 📝</h3>
+<textarea id="textInput" placeholder="Enter text"></textarea>
+<button onclick="countWords()">Count Words</button>
+<p id="wordOut"></p>
+</div>
 <!-- YouTube Title Generator -->
 <div class="card">
 <h3>YouTube Title Generator</h3>
@@ -219,6 +232,9 @@ document.getElementById("bmi").innerText=(w/(h*h)).toFixed(2);
 }
 
 </script>
-
+ <footer style="margin-top:30px;padding:20px;background:#020617;text-align:center;">
+<p>© 2026 Smart Tools Hub</p>
+<p>Privacy Policy | Contact</p>
+</footer>
 </body>
 </html>
