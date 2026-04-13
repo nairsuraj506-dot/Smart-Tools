@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Tools Hub ULTRA PRO</title>
+
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#020617;
+  color:white;
+  text-align:center;
+}
+h1{
+  padding:15px;
+  color:#38bdf8;
+}
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+  padding:15px;
+}
+.card{
+  background:#0f172a;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+}
+button{
+  padding:10px;
+  border:2px solid #38bdf8;
+  background:transparent;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{background:#38bdf8;}
+button:active{transform:scale(0.9);}
+input,textarea{
+  width:90%;
+  padding:8px;
+  margin:5px;
+  border-radius:8px;
+  border:none;
+}
+img{max-width:100%;}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Smart Tools Hub ULTRA PRO</h1>
+
+<div class="container">
+
+<!-- AI Text Generator -->
+<div class="card">
+<h3>AI Text Generator</h3>
+<input id="aiInput" placeholder="Enter topic">
+<button onclick="aiGen()">Generate</button>
+<p id="aiOut"></p>
+</div>
+
+<!-- YouTube Title Generator -->
+<div class="card">
+<h3>YouTube Title Generator</h3>
+<input id="ytInput" placeholder="Enter topic">
+<button onclick="ytGen()">Generate</button>
+<p id="ytOut"></p>
+</div>
+
+<!-- Hashtag Generator -->
+<div class="card">
+<h3>Hashtag Generator</h3>
+<input id="hashInput">
+<button onclick="hashGen()">Generate</button>
+<p id="hashOut"></p>
+</div>
+
+<!-- Image Compressor -->
+<div class="card">
+<h3>Image Compressor</h3>
+<input type="file" id="imgInput">
+<button onclick="compress()">Compress</button>
+<canvas id="canvas"></canvas>
+</div>
+
+<!-- Word Counter -->
+<div class="card">
+<h3>Word Counter</h3>
+<textarea id="text"></textarea>
+<button onclick="countWords()">Count</button>
+<p id="wordResult"></p>
+</div>
+
+<!-- Password -->
+<div class="card">
+<h3>Password Generator</h3>
+<button onclick="genPass()">Generate</button>
+<p id="pass"></p>
+</div>
+
+<!-- QR -->
+<div class="card">
+<h3>QR Generator</h3>
+<input id="qrText">
+<button onclick="genQR()">Generate</button>
+<div id="qr"></div>
+</div>
+
+<!-- Text to Speech -->
+<div class="card">
+<h3>Text to Speech</h3>
+<input id="ttsText">
+<button onclick="speak()">Speak</button>
+</div>
+
+<!-- Calculator -->
+<div class="card">
+<h3>Calculator</h3>
+<input id="calc">
+<button onclick="calculate()">=</button>
+<p id="res"></p>
+</div>
+
+<!-- BMI -->
+<div class="card">
+<h3>BMI Calculator</h3>
+<input id="w">
+<input id="h">
+<button onclick="bmi()">Calculate</button>
+<p id="bmi"></p>
+</div>
+
+</div>
+
+<script>
+
+// AI Generator (smart template)
+function aiGen(){
+let t=document.getElementById("aiInput").value;
+document.getElementById("aiOut").innerText=
+"🔥 "+t+" is one of the trending topics today. Learn how to use it effectively and boost your productivity.";
+}
+
+// YouTube Title
+function ytGen(){
+let t=document.getElementById("ytInput").value;
+document.getElementById("ytOut").innerText=
+"🔥 Top 5 "+t+" Tricks You Must Know in 2026!";
+}
+
+// Hashtag
+function hashGen(){
+let t=document.getElementById("hashInput").value;
+document.getElementById("hashOut").innerText=
+"#"+t+" #viral #trending #2026 #tech";
+}
+
+// Image Compressor
+function compress(){
+let file=document.getElementById("imgInput").files[0];
+let reader=new FileReader();
+reader.onload=function(e){
+let img=new Image();
+img.src=e.target.result;
+img.onload=function(){
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+canvas.width=img.width/2;
+canvas.height=img.height/2;
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+};
+};
+reader.readAsDataURL(file);
+}
+
+// Word Counter
+function countWords(){
+let t=document.getElementById("text").value;
+document.getElementById("wordResult").innerText=t.split(/\s+/).length;
+}
+
+// Password
+function genPass(){
+let c="abcABC123!@#";
+let p="";
+for(let i=0;i<10;i++)p+=c[Math.floor(Math.random()*c.length)];
+document.getElementById("pass").innerText=p;
+}
+
+// QR
+function genQR(){
+let t=document.getElementById("qrText").value;
+document.getElementById("qr").innerHTML=`<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${t}">`;
+}
+
+// TTS
+function speak(){
+let t=document.getElementById("ttsText").value;
+speechSynthesis.speak(new SpeechSynthesisUtterance(t));
+}
+
+// Calculator
+function calculate(){
+let v=document.getElementById("calc").value;
+document.getElementById("res").innerText=eval(v);
+}
+
+// BMI
+function bmi(){
+let w=document.getElementById("w").value;
+let h=document.getElementById("h").value/100;
+document.getElementById("bmi").innerText=(w/(h*h)).toFixed(2);
+}
+
+</script>
+
+</body>
+</html>
