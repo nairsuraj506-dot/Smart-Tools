@@ -230,7 +230,20 @@ let w=document.getElementById("w").value;
 let h=document.getElementById("h").value/100;
 document.getElementById("bmi").innerText=(w/(h*h)).toFixed(2);
 }
+function genPass(){
+  let chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$";
+  let pass="";
+  for(let i=0;i<10;i++){
+    pass+=chars[Math.floor(Math.random()*chars.length)];
+  }
+  document.getElementById("passOut").innerText=pass;
+}
 
+function countWords(){
+  let text=document.getElementById("textInput").value;
+  let count=text.trim().split(/\s+/).length;
+  document.getElementById("wordOut").innerText="Words: "+count;
+}
 </script>
  <footer style="margin-top:30px;padding:20px;background:#020617;text-align:center;">
 <p>© 2026 Smart Tools Hub</p>
