@@ -330,8 +330,12 @@ function countWords(){
 
 <script>
 function countWords(){
-  let text = document.getElementById("textInput").value.trim();
-  let count = text ? text.split(/\s+/).length : 0;
+  let text = document.getElementById("textInput").value;
+
+  text = text.trim().replace(/\s+/g, " ");
+
+  let count = text === "" ? 0 : text.split(" ").length;
+
   document.getElementById("wordOut").innerText = "Words: " + count;
 }
 </script>
