@@ -232,11 +232,7 @@ const link = document.createElement("a");
 link.href = canvas.toDataURL("image/jpeg", 0.6);
 link.download = "compressed.jpg";
 link.click();
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/jpeg", 0.6);
-      link.download = "compressed.jpg";
-      link.click();
-    }
+      }
   };
 
   reader.readAsDataURL(file);
